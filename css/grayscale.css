@@ -21,7 +21,6 @@ h4,
 h5,
 h6 {
   margin: 0 0 35px;
-  text-transform: uppercase;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 1px;
@@ -55,7 +54,6 @@ a:focus {
 .navbar-custom {
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  text-transform: uppercase;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: black;
 }
@@ -311,4 +309,23 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Custom CSS Begin */
+.positives_list {
+  list-style-type: none;
+}
+
+.shield-icon {
+  width: 2em;
+}
+
+.navbar {
+  background: #03a9f4;
+}
+
+.navbar-brand {
+  padding: 0;
+  padding-top: 10px;
+  width: 200px;
 }
