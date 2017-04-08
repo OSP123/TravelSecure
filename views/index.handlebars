@@ -1,0 +1,25 @@
+<div class="container-fluid" id="login_container">
+    <div class="row" id="background">
+       <div class="col-md-12" id="login_header">
+					<p>
+						{{#unless logged_in}}
+							<a href="/users/signup-signin">Sign In or Sign Up</a>
+						{{/unless}}
+
+						{{#if logged_in}}
+							<div>
+								<p>Welcome {{email}}! </p>
+								<p>You are user {{user_id}}.</p>
+								<a href="/characters"><button id="choose_character">Choose your Character!</button></a>
+							</div>
+						{{/if}}
+					</p>
+				</div>
+		</div>        
+</div>
+
+{{#if logged_in}}
+
+{{/if}}
+
+

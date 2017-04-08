@@ -23,5 +23,16 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/BlackrockDigital/startbootstrap-grayscale.git"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.8",
+    "morgan": "^1.8.1",
+    "mysql": "^2.13.0",
+    "nodemon": "^1.11.0",
+    "sequelize": "^3.30.4",
+    "sequelize-cli": "^2.7.0"
   }
 }

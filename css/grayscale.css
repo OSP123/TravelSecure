@@ -317,7 +317,7 @@ body {
 }
 
 .shield-icon {
-  width: 5%;
+  width: 2em;
 }
 
 .navbar {
@@ -327,4 +327,5 @@ body {
 .navbar-brand {
   padding: 0;
   padding-top: 10px;
+  width: 200px;
 }
