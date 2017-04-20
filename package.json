@@ -8,6 +8,9 @@
     "type": "MIT",
     "url": "https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE"
   },
+  "scripts": {
+    "start": "node ./bin/www"
+  },
   "devDependencies": {
     "bootstrap": "^3.3.7",
     "browser-sync": "^2.13.0",
@@ -26,8 +29,11 @@
   },
   "dependencies": {
     "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.2",
     "method-override": "^2.3.8",
     "morgan": "^1.8.1",
     "mysql": "^2.13.0",
