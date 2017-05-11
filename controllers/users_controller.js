@@ -1,4 +1,4 @@
-var models  = require('../models');
+var db  = require('../models');
 var express = require('express');
 var router  = express.Router();
 var passport = require("../config/passport");
@@ -10,10 +10,10 @@ router.get('/login', function(req, res){
 });
 
 //this is the users_controller.js file
-router.get('/signup-signin', function(req,res) {
-	res.render('users/signup-signin', {
-		layout: 'main-registration'
-	});
+router.get('/signup', function(req,res) {
+	res.render('registration', {
+    layout: 'main-registration'
+  });
 });
 
 router.get('/sign-out', function(req,res) {
@@ -32,23 +32,26 @@ router.post('/login', passport.authenticate("local"), function(req, res) {
 
 
 // register a user
-router.post('/create', function(req,res) {
-	models.User.findAll({
-    where: {email: req.body.email}
+router.post('/signup', function(req,res) {
+	db.User.findAll({
+    where: {username: req.body.username}
   }).then(function(users) {
-			if (users.length > 0){
-				console.log(users)
-				res.send('we already have an email or username for this account')
-			} else {
-        db.User.create({
-          email: req.body.email,
-          password: req.body.password
-        }).then(function() {
-          res.redirect(307, "/");
-        }).catch(function(err) {
-          res.json(err);
-        });
-	    }
+    if (users.length > 0) {
+      res.json({
+        duplicateUser: true
+      });
+    //At some point, make sure that only one user can be associated with an email.
+		} else {
+      db.User.create({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password
+      }).then(function() {
+        res.send({redirect: '/'});
+      }).catch(function(err) {
+        res.json(err);
+      });
+    }
 	})
 });
 

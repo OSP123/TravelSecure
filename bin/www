@@ -19,7 +19,7 @@ app.set('port', process.env.PORT || 3000);
 
 // we sync the models with our db 
 // (thus creating the apropos tables)
-models.sequelize.sync({force: true}).then(function () {
+models.sequelize.sync().then(function () {
 	// set our app to listen to the port we set above
   var server = app.listen(app.get('port'), function() {
   	// then save a log of the listening to our debugger.
