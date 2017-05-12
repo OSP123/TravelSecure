@@ -7,7 +7,7 @@ var cookieParser   = require('cookie-parser'); // for working with cookies
 var bodyParser     = require('body-parser');
 var session        = require('express-session'); 
 var methodOverride = require('method-override'); // for deletes in express
-
+var passport 			 = require("./config/passport");
 // Express settings
 // ================
 
@@ -15,10 +15,10 @@ var methodOverride = require('method-override'); // for deletes in express
 var app            = express();
 
 // override POST to have DELETE and PUT
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 //allow sessions
-app.use(session({ secret: 'app', cookie: { maxAge: 60000 }}));
+app.use(session({ secret: 'booty Mctootie', cookie: { maxAge: 60000 }}));
 app.use(cookieParser());
 
 // view engine setup
@@ -38,6 +38,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 require('./routes')(app);
 
