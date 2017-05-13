@@ -1,13 +1,9 @@
-var db  = require('../models');
-var express = require('express');
-var router  = express.Router();
+var db       = require('../models');
+var express  = require('express');
+var router   = express.Router();
 var passport = require("../config/passport");
-
-router.get('/login', function(req, res){
-    res.render('login', {
-        title: 'Express Login'
-    });
-});
+var flash    = require('connect-flash');
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 //this is the users_controller.js file
 router.get('/signup', function(req,res) {
