@@ -8,6 +8,8 @@ var bodyParser     = require('body-parser');
 var session        = require('express-session'); 
 var methodOverride = require('method-override'); // for deletes in express
 var passport 			 = require("./config/passport");
+var config				 = require("./config/config");
+
 // Express settings
 // ================
 
@@ -39,7 +41,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(session({ secret: config.sessionKey, resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 

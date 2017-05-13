@@ -57,14 +57,13 @@ $(document).ready(function() {
       $("#email-repeat-feedback").text("Emails Match!");    
     }
   });
-
-  var passwordRegEx = (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/);
+  var passwordRegEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
   passwordInput.bind('input propertychange', function() {
     if (!passwordRegEx.test($(this).val())) {
       $("#password-form").removeClass("has-success");
 
       $("#password-form").addClass("has-error");
-      $("#password-feedback").text("Password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number, and must be at least 8 characters long.");
+      $("#password-feedback").text("Password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number, 1 special character and must be at least 8 characters long.");
     } else {
       $("#password-form").removeClass("has-error");
 
