@@ -58,6 +58,21 @@ $(document).ready(function() {
     }
   });
 
+  var passwordRegEx = (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/);
+  passwordInput.bind('input propertychange', function() {
+    if (!passwordRegEx.test($(this).val())) {
+      $("#password-form").removeClass("has-success");
+
+      $("#password-form").addClass("has-error");
+      $("#password-feedback").text("Password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number, and must be at least 8 characters long.");
+    } else {
+      $("#password-form").removeClass("has-error");
+
+      $("#password-form").addClass("has-success");
+      $("#password-feedback").text("Password set correctly!");    
+    }
+  });
+
   repeatPasswordInput.bind('input propertychange', function() {
     if (passwordInput.val().trim() !== repeatPasswordInput.val().trim()) {
       $("#repeat-password-form").removeClass("has-success");
