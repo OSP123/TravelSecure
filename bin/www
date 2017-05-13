@@ -11,7 +11,7 @@ var debug = require('debug')('express-example');
 var app = require('../server');
 
 // we bring in the models we exported with index.js
-var models = require("../models");
+var db = require("../models");
 
 // we set the port of the app
 app.set('port', process.env.PORT || 3000);
@@ -19,7 +19,7 @@ app.set('port', process.env.PORT || 3000);
 
 // we sync the models with our db 
 // (thus creating the apropos tables)
-models.sequelize.sync().then(function () {
+db.sequelize.sync().then(function () {
 	// set our app to listen to the port we set above
   var server = app.listen(app.get('port'), function() {
   	// then save a log of the listening to our debugger.

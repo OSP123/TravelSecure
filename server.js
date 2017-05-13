@@ -18,8 +18,8 @@ var app            = express();
 app.use(methodOverride('_method'));
 
 //allow sessions
-app.use(session({ secret: 'booty Mctootie', cookie: { maxAge: 60000 }}));
-app.use(cookieParser());
+// app.use(session({ secret: 'booty Mctootie', cookie: { maxAge: 60000 }}));
+// app.use(cookieParser());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
