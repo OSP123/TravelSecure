@@ -1,32 +1,39 @@
-<div class="container-fluid">
+{{> nav }}
+<div id="registration-container" class="container-fluid">
     <section class="container">
 		<div class="container-page">				
 			<div class="col-md-6">
 				<h3 class="dark-grey">Registration</h3>
 				
-				<div class="form-group col-lg-12">
+				<div id="username-form" class="form-group col-lg-12">
 					<label>Username</label>
 					<input type="" name="" class="form-control" id="username-input" value="">
+					<p id="username-feedback" class=""></p>
 				</div>
 				
-				<div class="form-group col-lg-6">
+				<div class="form-group col-lg-12">
 					<label>Password</label>
 					<input type="password" name="" class="form-control" id="password-input" value="">
 				</div>
 				
-				<div class="form-group col-lg-6">
+				<div id="repeat-password-form" class="form-group col-lg-12">
 					<label>Repeat Password</label>
 					<input type="password" name="" class="form-control" id="repeat-password-input" value="">
+					<p id="repeat-password-feedback" class=""></p>
 				</div>
 								
-				<div class="form-group col-lg-6">
+				<div id="email-form" class="form-group col-lg-12">
 					<label>Email Address</label>
-					<input type="" name="" class="form-control" id="email-input" value="">
+					<input type="email" name="" class="form-control" id="email-input" value="">
+
+				  <p id="email-feedback" class=""></p>
+				  <small id="email-additional-feedback" class="form-text text-muted"></small>
 				</div>
 				
-				<div class="form-group col-lg-6">
+				<div id="email-repeat-form" class="form-group col-lg-12">
 					<label>Repeat Email Address</label>
-					<input type="" name="" class="form-control" id="repeat-email-input" value="">
+					<input type="email" name="" class="form-control" id="repeat-email-input" value="">
+					<p id="email-repeat-feedback" class=""></p>
 				</div>			
 				
 				<div class="col-sm-6">

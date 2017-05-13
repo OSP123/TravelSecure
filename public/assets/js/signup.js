@@ -7,20 +7,74 @@ $(document).ready(function() {
 
   var repeatPasswordInput = $("input#repeat-password-input");
   var repeatEmailInput = $("input#repeat-email-input");
-  // When the signup button is clicked, we validate the email and password are not blank
+
+  // Username "on-the-fly" validation
+  usernameInput.bind('input propertychange', function() {
+    if (usernameInput.val().trim().length < 6) {
+      $("#username-form").removeClass("has-success");
+
+      $("#username-form").addClass("has-error");
+      $("#username-feedback").text("username must be at least 6 characters long");
+    } else {
+      $("#username-form").removeClass("has-error");
+
+      $("#username-form").addClass("has-success");
+      $("#username-feedback").text("Username valid!");
+    }
+  });
+
+  // Email "on-the-fly" validation
+  emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  emailInput.bind('input propertychange', function() {
+    if (!emailRegEx.test($(this).val()))
+    {
+      $("#email-form").removeClass("has-success");
+
+      $("#email-form").addClass("has-error");
+      $("#email-feedback").text("Invalid Email");
+      $("#email-additional-feedback").text("Ex: someone@example.com");
+    
+    } else {
+      $("#email-form").removeClass("has-error");
+
+      $("#email-form").addClass("has-success");
+      $("#email-feedback").text("Valid Email!");
+      $("#email-additional-feedback").text("");
+    }
+  });
+
+  // Check "on-the-fly" if repeated email matches email
+  repeatEmailInput.bind('input propertychange', function() {
+    if (emailInput.val().trim() !== repeatEmailInput.val().trim()) {
+      $("#email-repeat-form").removeClass("has-success");
+
+      $("#email-repeat-form").addClass("has-error");
+      $("#email-repeat-feedback").text("Emails Don't Match");
+    } else {
+      $("#email-repeat-form").removeClass("has-error");
+
+      $("#email-repeat-form").addClass("has-success");
+      $("#email-repeat-feedback").text("Emails Match!");    
+    }
+  });
+
+  repeatPasswordInput.bind('input propertychange', function() {
+    if (passwordInput.val().trim() !== repeatPasswordInput.val().trim()) {
+      $("#repeat-password-form").removeClass("has-success");
+
+      $("#repeat-password-form").addClass("has-error");
+      $("#repeat-password-feedback").text("Passwords Don't Match");
+    } else {
+      $("#repeat-password-form").removeClass("has-error");
+
+      $("#repeat-password-form").addClass("has-success");
+      $("#repeat-password-feedback").text("Passwords Match!");    
+    }
+  });
+
+  // Check if emails match each other
   signUpButton.on("click", function(event) {
     // Replace all alerts with modals
-    if (usernameInput.length < 6) {
-      return alert("Username must be at least 6 characters long");
-    }
-
-    if (emailInput.val().trim() !== repeatEmailInput.val().trim()) {
-      return alert("Emails don't match");
-    }
-
-    if (passwordInput.val().trim() !== repeatPasswordInput.val().trim()) {
-      return alert("Passwordss don't match");
-    }
 
     var userData = {
       username: usernameInput.val().trim(),
