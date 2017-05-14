@@ -6,7 +6,7 @@
                 Menu <i class="fa fa-bars"></i>
             </button>
             <a class="navbar-brand page-scroll" href="#page-top">
-                <span class="light"><img class="shield-icon" src="/assets/img/shield.png"> TravelSafe</span>
+                <span class="light"><img class="shield-icon" src="/assets/img/shield.png">TravelSafe</span>
             </a>
         </div>
 
@@ -23,9 +23,15 @@
                 <li>
                     <a class="page-scroll" href="/contact">Contact</a>
                 </li>
-                <li>
-                    <a class="page-scroll" data-toggle="modal" data-target="#login-modal">Login</a>
-                </li>
+                {{#if isAuthenticated}}
+                    <li>
+                        <a href="/users/sign-out" class="page-scroll" data-toggle="modal">Logout</a>
+                    </li>
+                {{else}}
+                    <li>
+                        <a class="page-scroll" data-toggle="modal" data-target="#login-modal">Login</a>
+                    </li>
+                {{/if}}
             </ul>
         </div>
         <!-- /.navbar-collapse -->
