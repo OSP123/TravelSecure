@@ -3,7 +3,7 @@ var express = require('express');
 var router  = express.Router();
 
 router.get('/', function(req, res) {
-  res.render('trips', {});
+  res.render('trips');
 });
 
 module.exports = router;
