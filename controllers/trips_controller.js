@@ -1,8 +1,10 @@
 var db  = require('../models');
 var express = require('express');
 var router  = express.Router();
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
-router.get('/', function(req, res) {
+
+router.get('/', isAuthenticated, function(req, res) {
   res.render('trips/trips');
 });
 

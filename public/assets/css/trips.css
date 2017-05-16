@@ -1,35 +1,63 @@
+body {
+  color: #03a9f4;
+}
+
 .trip-subcontainer{
-	background:#fff; 
-	border:1px solid #ddd; 
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
-	margin: 15px 0; overflow:hidden;
-	color: black;
-	height: 20em;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  margin: 15px 0;
+  overflow: hidden;
+  color: black;
+  height: 20em;
+  padding: 0 20px 10px;
+  overflow: scroll;
 }
 
 .trip-radius{
 	border-radius:7px;
 }
+
 .trip-danger {	border-color: #d9534f; }
 
 .trip-success {	border-color: #5cb85c; }
 
 .trip-warning {	border-color: #f0ad4e; }
 
-.trip-content{
-	padding:0 20px 10px;
+
+.risk-analysis-container {
+	display: inline-block;
+}
+
+.bottom-trip-container {
+	
 }
 
 .btn-circle {
   width: 70px;
   height: 70px;
-  padding: 10px 16px;
   font-size: 24px;
-  line-height: 1.33;
-  border-radius: 50%;
   background: white;
-	color: #03a9f4;
-	border: solid 1px #03a9f4;
+  color: #03a9f4;
+  border: solid 1px #03a9f4;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.glyphicon {
+  top: 3px;
+  left: 2px;
+}
+
+.btn-circle-number {
+	width: 70px;
+  height: 70px;
+  font-size: 24px;
+  background: white;
+  color: #03a9f4;
+  border: solid 1px #03a9f4;
 }
 
 .btn-circle:hover {
