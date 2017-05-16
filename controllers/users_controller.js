@@ -7,7 +7,7 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 //this is the users_controller.js file
 router.get('/signup', function(req,res) {
-	res.render('registration', {
+	res.render('users/registration', {
     layout: 'main-registration'
   });
 });

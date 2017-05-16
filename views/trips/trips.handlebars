@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="/assets/css/trips.css">
+{{> nav }}
+{{> login-modal }}
+<div class="all-trips-container container">
+	
+	<div class="row">
+	{{!-- 	{{#each tripArray}} --}}
+		<div class="trip-container col-xs-12 col-sm-6 col-lg-6">
+			<div class="trip-subcontainer trip-default">
+				<div class="trip-content">
+					<h3 class="lead">
+						Trip: {{ tripName }}
+					</h3>
+					<div class="bottom-trip">
+						<p class="risk-analysis">
+							{{ riskAnalysis }}
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	{{!-- 	{{/each}} --}}
+	<button type="button" class="btn btn-circle"><i class="glyphicon glyphicon-plus"></i></button>
+	</div>
+</div>
