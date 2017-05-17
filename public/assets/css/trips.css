@@ -1,5 +1,11 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  color: #03a9f4;
+  color: rgba(0, 0, 0, 0.63);
 }
 
 .trip-subcontainer{
@@ -32,6 +38,62 @@ body {
 .bottom-trip-container {
 	
 }
+
+/* Map CSS */
+
+form, #map-places-container {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.pac-container {
+    background-color: #FFF;
+    z-index: 1052 !important;
+    position: fixed;
+    display: inline-block;
+    float: left;
+}
+
+#map {
+  width: 100%;
+  height: 300px;
+}
+
+/*#locationField, #controls {
+  position: relative;
+  width: 480px;
+}*/
+#autocomplete {
+  width: 100%;
+}
+.label {
+  text-align: right;
+  font-weight: bold;
+  width: 100%;
+  color: #303030;
+}
+#address {
+  width: 100%;
+}
+#address td {
+  font-size: 1em;
+}
+.field {
+  width: 100%;
+}
+.slimField {
+  width: 40%;
+}
+.wideField {
+  width: 60%;
+}
+#locationField {
+  height: 20px;
+  margin-bottom: 12px;
+}
+
+/* End Map CSS */
 
 .btn-circle {
   width: 70px;

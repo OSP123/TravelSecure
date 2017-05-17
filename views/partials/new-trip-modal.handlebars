@@ -1,50 +1,83 @@
-<!-- line modal -->
 <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
   <div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-			<h3 class="modal-title" id="lineModalLabel">My Modal</h3>
+			<h3 class="modal-title" id="lineModalLabel">Add a new Trip</h3>
 		</div>
 		<div class="modal-body">
-			
-            <!-- content goes here -->
+      <!-- content goes here -->
 			<form>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputFile">File input</label>
-                <input type="file" id="exampleInputFile">
-                <p class="help-block">Example block-level help text here.</p>
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> Check me out
-                </label>
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-
-		</div>
-		<div class="modal-footer">
-			<div class="btn-group btn-group-justified" role="group" aria-label="group button">
-				<div class="btn-group" role="group">
-					<button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+        <div id="map-places-container">
+          <div id="locationField">
+			      <input id="autocomplete" placeholder="Enter Address Here for Autocomplete" onFocus="geolocate()" type="text"></input>
+			    </div>
+			    <table id="address">
+			      <tr>
+			        <td class="label">Street address</td>
+			        <td class="slimField"><input class="field" id="street_number"
+			              disabled="true"></input></td>
+			        <td class="wideField" colspan="2"><input class="field" id="route"
+			              disabled="true"></input></td>
+			      </tr>
+			      <tr>
+			        <td class="label">City</td>
+			        <!-- Note: Selection of address components in this example is typical.
+			             You may need to adjust it for the locations relevant to your app. See
+			             https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
+			        -->
+			        <td class="wideField" colspan="3"><input class="field" id="locality"
+			              disabled="true"></input></td>
+			      </tr>
+			      <tr>
+			        <td class="label">State</td>
+			        <td class="slimField"><input class="field"
+			              id="administrative_area_level_1" disabled="true"></input></td>
+			        <td class="label">Zip code</td>
+			        <td class="wideField"><input class="field" id="postal_code"
+			              disabled="true"></input></td>
+			      </tr>
+			      <tr>
+			        <td class="label">Country</td>
+			        <td class="wideField" colspan="3"><input class="field"
+			              id="country" disabled="true"></input></td>
+			      </tr>
+			    </table>
 				</div>
-				<div class="btn-group btn-delete hidden" role="group">
-					<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">Delete</button>
-				</div>
-				<div class="btn-group" role="group">
-					<button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
-				</div>
-			</div>
+        <label class="checkbox-inline">
+        	<input id="flight" name="flight" value="flight" type="checkbox">Flight
+        </label>
+				<label class="checkbox-inline">
+					<input id="car" name="car" value="car" type="checkbox">Car
+				</label>
+				<label class="checkbox-inline">
+					<input id="bus" name="bus" value="bus" type="checkbox">Bus
+				</label>
+				<label class="checkbox-inline">
+					<input id="train" name="train" value="train" type="checkbox">Train
+				</label>
+				<label class="checkbox-inline">
+					<input id="bicycle" name="bicycle" value="bicycle" type="checkbox">Bicycle
+				</label>
+				<label class="checkbox-inline">
+					<input id="walking" name="walking" value="walking" type="checkbox">Walking
+				</label>
+				<label class="checkbox-inline">
+					<input id="other" name="other" value="other" type="checkbox">Other
+				</label>
+				<div class="form-group"> <!-- Date input -->
+	        <p>Date of Arrival at Destination: <input type="text" id="datepicker"></p>
+      	</div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
 		</div>
 	</div>
+	
   </div>
+
 </div>
+
+<script src="/assets/js/place-search.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRcvaMpIKjj3OAWJan2G9SXrfGAkjBCi4&libraries=places&callback=initAutocomplete"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
