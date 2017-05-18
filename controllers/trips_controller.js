@@ -10,4 +10,14 @@ router.get('/', isAuthenticated, function(req, res) {
   });
 });
 
+router.post('/new', isAuthenticated, function(req, res) {
+
+	// Add id from User onto req.body
+	req.body.UserId = req.user.id;
+
+  db.Trip.create(req.body).then(function(dbPost) {
+    res.json(dbPost);
+  });
+});
+
 module.exports = router;

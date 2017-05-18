@@ -7,8 +7,11 @@
 		</div>
 		<div class="modal-body">
       <!-- content goes here -->
-			<form>
+			<form id="tripForm">
         <div id="map-places-container">
+        	<div class="form-group">
+			    	<input id="tripName" name="tripName" type="text" placeholder="Trip Name"></input>
+			    </div>
           <div id="locationField">
 			      <input id="autocomplete" placeholder="Enter Address Here for Autocomplete" onFocus="geolocate()" type="text"></input>
 			    </div>
@@ -43,28 +46,24 @@
 			              id="country" disabled="true"></input></td>
 			      </tr>
 			    </table>
+						<input name="location_lat" type="hidden">
+						<input name="location_lng" type="hidden">
+						<input name="location_id" type="hidden">
 				</div>
-        <label class="checkbox-inline">
-        	<input id="flight" name="flight" value="flight" type="checkbox">Flight
-        </label>
-				<label class="checkbox-inline">
-					<input id="car" name="car" value="car" type="checkbox">Car
-				</label>
-				<label class="checkbox-inline">
-					<input id="bus" name="bus" value="bus" type="checkbox">Bus
-				</label>
-				<label class="checkbox-inline">
-					<input id="train" name="train" value="train" type="checkbox">Train
-				</label>
-				<label class="checkbox-inline">
-					<input id="bicycle" name="bicycle" value="bicycle" type="checkbox">Bicycle
-				</label>
-				<label class="checkbox-inline">
-					<input id="walking" name="walking" value="walking" type="checkbox">Walking
-				</label>
-				<label class="checkbox-inline">
-					<input id="other" name="other" value="other" type="checkbox">Other
-				</label>
+				<div class="form-group">
+				  <label for="methodOfTransport">Choose Mode of Transportation:</label>
+				  <select class="form-control" id="methodOfTransport">
+				    <option id="flight" name="flight" value="flight">Flight</option>
+				    <option id="car" name="car" value="car">Car</option>
+				    <option id="bus" name="bus" value="bus">Bus</option>
+				    <option id="train" name="train" value="train">
+				    Train</option>
+				    <option id="bicycle" name="bicycle" value="bicycle">Bicycle</option>
+				    <option id="walking" name="walking" value="walking">Walking</option>
+				    <option id="other" name="other" value="other">Other</option>
+				    <option id="multiple" name="multiple" value="multiple">Multiple Transports</option>
+				  </select>
+				</div>
 				<div class="form-group"> <!-- Date input -->
 	        <p>Date of Arrival at Destination: <input type="text" id="datepicker"></p>
       	</div>
