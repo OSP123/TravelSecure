@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="/assets/css/trips.css">
+{{> nav }}
+{{> login-modal }}
+{{> new-trip-modal }}
+<div class="all-trips-container container">
+	
+	<div class="row">
+	{{!-- 	{{#each tripArray}} --}}
+		<div class="trip-container col-xs-12 col-sm-6 col-lg-6">
+			<div class="trip-subcontainer trip-default">
+				<h3 class="lead">
+					Trip: {{ tripName }} Test trip name
+				</h3>
+				<div class="bottom-trip-container">
+					<div class="risk-analysis-container">
+							{{!-- {{ riskAnalysis }} --}}
+						<p class="risk-analysis">
+							Exceeding reaction chamber thermal limit. We have begun power-supply calibration. Force fields have been established on all turbo lifts and crawlways. Computer, run a level-two diagnostic on warp-drive systems. Antimatter containment positive. Warp drive within normal parameters. I read an ion trail characteristic of a freighter escape pod. The bomb had a molecular-decay detonator. Detecting some unusual fluctuations in subspace frequencies.
+						</p>
+					</div>
+					<button type="button" class="btn btn-circle"><i class="">10</i></button>
+				</div>
+			</div>
+		</div>
+	{{!-- 	{{/each}} --}}
+	<button id="add-trip-button" data-toggle="modal" data-target="#squarespaceModal" type="button" class="btn btn-circle"><i class="glyphicon glyphicon-plus"></i></button>
+	</div>
+</div>
