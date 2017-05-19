@@ -5,8 +5,16 @@
 		<div class="loginmodal-container">
 			<h1 class="">Log In to Your Account</h1><br>
 		  <form class="login">
-				<input id="username-input" type="text" name="user" placeholder="Username">
-				<input id="password-input" type="password" name="pass" placeholder="Password">
+		  	<div id="username-form" class="form-group col-lg-12">
+					<label>Username</label>
+					<input id="username-input" type="text" name="user" placeholder="Username">
+					<small id="username-feedback" class=""></small>
+				</div>
+				<div id="password-form" class="form-group col-lg-12">
+					<label>Password</label>
+					<input id="password-input" type="password" name="pass" placeholder="Password">
+					<small id="password-feedback" class=""></small>
+				</div>
 				<input type="submit" name="login" class="login loginmodal-submit" value="Login">
 		  </form>
 		  <div class="login-help">
