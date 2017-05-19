@@ -3,6 +3,12 @@
 module.exports = {
   up: function (queryInterface, Sequelize) {
       return queryInterface.createTable('Trips', {
+      id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false
+      },
       name: {
         type: Sequelize.STRING,
         allowNull: true
