@@ -5,9 +5,19 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 
 router.get('/', isAuthenticated, function(req, res) {
-  res.render('trips/trips', {
-  	layout: 'main-trips'
+
+	db.Trip.findAll({
+    where: {
+    	UserId: req.user.id
+    }
+  }).then(function(dbTrip) {
+  	console.log(dbTrip);
+    res.render('trips/trips', {
+  		layout: 'main-trips',
+  		trip: dbTrip
+  	});
   });
+
 });
 
 router.post('/new', isAuthenticated, function(req, res) {
