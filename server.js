@@ -9,7 +9,7 @@ var bodyParser     = require('body-parser');
 var session        = require('express-session'); 
 var methodOverride = require('method-override'); // for deletes in express
 var passport 			 = require("./config/passport");
-var config				 = require("./config/config");
+var config				 = require("./config/extra-config");
 // Express settings
 // ================
 
