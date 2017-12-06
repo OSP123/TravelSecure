@@ -1,14 +1,14 @@
 module.exports = function(app){
 
 		// Our model controllers (rather than routes)
-		var application_controller = require('./controllers/application_controller');
-		var users_controller = require('./controllers/users_controller');
-		var trips_controller = require('./controllers/trips_controller');
-		var pricing_controller = require('./controllers/pricing_controller');
+		var application = require('./routes/application');
+		var users = require('./routes/users');
+		var trips = require('./routes/trips');
+		var pricing = require('./routes/pricing');
 
-		app.use('/', application_controller);
-		app.use('/users', users_controller);
-		app.use('/trips', trips_controller);
-		app.use('/pricing', pricing_controller);
+		app.use('/', application);
+		app.use('/users', users);
+		app.use('/trips', trips);
+		app.use('/pricing', pricing);
     //other routes..
 }
