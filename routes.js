@@ -1,6 +1,5 @@
 module.exports = function(app){
 
-		// Our model controllers (rather than routes)
 		var application = require('./routes/application');
 		var users = require('./routes/users');
 		var trips = require('./routes/trips');

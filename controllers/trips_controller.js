@@ -16,6 +16,7 @@ exports.index = function(req, res) {
 
 exports.createTrip = function(req, res) {
 
+  console.log(req.user);
   // Add id from User onto req.body
   req.body.UserId = req.user.id;
 

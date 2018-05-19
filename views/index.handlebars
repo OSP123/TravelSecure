@@ -1,23 +1,3 @@
-{{!-- <div class="container-fluid" id="login_container">
-    <div class="row" id="background">
-       <div class="col-md-12" id="login_header">
-					<p>
-						{{#unless logged_in}}
-							<a href="/users/signup-signin">Sign In or Sign Up</a>
-						{{/unless}}
-
-						{{#if logged_in}}
-							<div>
-								<p>Welcome {{email}}! </p>
-								<p>You are user {{user_id}}.</p>
-								<a href="/characters"><button id="choose_character">Choose your Character!</button></a>
-							</div>
-						{{/if}}
-					</p>
-				</div>
-		</div>        
-</div>
- --}}
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     {{> nav }}
     {{> login-modal }}
@@ -28,14 +8,15 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Be Prepared. TravelSafe.</h1>
-                        <h3 class="intro-text">Secure your travel experience.</h3>
-                        <ul class="positives_list">
-                            <p>Sign up for free and you get:</p>
-                            <p>Streaming updates on security status using a variety of different factors.</p>
-                            <p>Locations of active safe zones and hospitals, police etc.</p> 
-                            <p>Highly customized for each, specific region, using security data for the locations you'll be traveling to.</p>
+                        <h2>Secure your travel experience.</h2>
+                        <h3><a class="page-scroll" data-toggle="modal" data-target="#login-modal">Sign Up</a> for free and you get:</h3>
+                            <ul class="positives_list">
+                              <li>Streaming updates on security status using a variety of different factors.</li>
+                              <li>Locations of active safe zones and hospitals, police, and more</li>
+                              <li>Highly customized for each, specific region using security data for the locations you'll be traveling to.</li>
+                            </ul>
                         </ul>
-                        <a href="#about" class="btn btn-circle page-scroll">
+                        <a href="#contact" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
                     </div>
@@ -43,31 +24,6 @@
             </div>
         </div>
     </header>
-
-    <!-- About Section -->
-    <section id="about" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>About Grayscale</h2>
-                <p>Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-                <p>This theme features stock photos by <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Maps skin courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
-                <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Download Section -->
-    <section id="download" class="content-section text-center">
-        <div class="download-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Download Grayscale</h2>
-                    <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="container content-section text-center">

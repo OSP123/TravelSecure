@@ -1,20 +1,19 @@
 // Dependencies
 // ============
-var flash 				 = require('connect-flash');
-var express        = require('express');
-var path           = require('path');
-var logger         = require('morgan');
-var cookieParser   = require('cookie-parser'); // for working with cookies
-var bodyParser     = require('body-parser');
-var session        = require('express-session'); 
-var methodOverride = require('method-override'); // for deletes in express
-var passport 			 = require("./config/passport");
-var config				 = require("./config/extra-config");
+const express        = require('express');
+const path           = require('path');
+const logger         = require('morgan');
+const cookieParser   = require('cookie-parser'); // for working with cookies
+const bodyParser     = require('body-parser');
+const session        = require('express-session'); 
+const methodOverride = require('method-override'); // for deletes in express
+const passport 			 = require("./config/passport");
+const config				 = require("./config/extra-config");
 // Express settings
 // ================
 
 // instantiate our app
-var app            = express();
+const app            = express();
 
 // override POST to have DELETE and PUT
 app.use(methodOverride('_method'));
@@ -39,7 +38,6 @@ var authCheck 		 = require('./config/middleware/attachAuthenticationStatus');
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
-app.use(flash());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
