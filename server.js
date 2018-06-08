@@ -3,10 +3,8 @@
 const express        = require('express');
 const path           = require('path');
 const logger         = require('morgan');
-const cookieParser   = require('cookie-parser'); // for working with cookies
 const bodyParser     = require('body-parser');
 const session        = require('express-session'); 
-const methodOverride = require('method-override'); // for deletes in express
 const passport 			 = require("./config/passport");
 const config				 = require("./config/extra-config");
 // Express settings
@@ -15,12 +13,8 @@ const config				 = require("./config/extra-config");
 // instantiate our app
 const app            = express();
 
-// override POST to have DELETE and PUT
-app.use(methodOverride('_method'));
-
 //allow sessions
 // app.use(session({ secret: 'booty Mctootie', cookie: { maxAge: 60000 }}));
-// app.use(cookieParser());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,7 +34,6 @@ var authCheck 		 = require('./config/middleware/attachAuthenticationStatus');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({ secret: config.sessionKey, resave: true, saveUninitialized: true }));
