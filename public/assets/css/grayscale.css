@@ -285,6 +285,10 @@ body {
 }
 
 /* Custom CSS Begin */
+#plans {
+  margin-top: 10%;
+}
+
 .positives_list {
   display: table;
 }
