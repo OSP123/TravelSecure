@@ -1,9 +1,9 @@
 module.exports = function(app){
 
-		var application = require('./routes/application');
-		var users = require('./routes/users');
-		var trips = require('./routes/trips');
-		var pricing = require('./routes/pricing');
+		const application = require('./routes/application');
+		const users = require('./routes/users');
+		const trips = require('./routes/trips');
+		const pricing = require('./routes/pricing');
 
 		app.use('/', application);
 		app.use('/users', users);
