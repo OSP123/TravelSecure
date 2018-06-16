@@ -20,14 +20,14 @@ const app            = express();
 app.set('views', path.join(__dirname, 'views'));
 
 //set up handlebars
-var exphbs = require('express-handlebars');
+const exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
     defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
 
-var isAuth 				 = require("./config/middleware/isAuthenticated");
-var authCheck 		 = require('./config/middleware/attachAuthenticationStatus');
+const isAuth 				 = require("./config/middleware/isAuthenticated");
+const authCheck 		 = require('./config/middleware/attachAuthenticationStatus');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -46,7 +46,7 @@ require('./routes')(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
