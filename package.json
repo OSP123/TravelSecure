@@ -28,7 +28,7 @@
     "mysql": "^2.13.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^4.37.10",
+    "sequelize": "^5.8.12",
     "sequelize-cli": "^5.5.0"
   },
   "engines": {
