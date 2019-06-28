@@ -19,17 +19,15 @@
     "url": "https://github.com/OSP123/TravelSecure.git"
   },
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
-    "express-session": "^1.15.2",
-    "morgan": "^1.8.1",
-    "mysql": "^2.13.0",
+    "bcrypt": "^3.0.6",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.16.2",
+    "morgan": "^1.9.1",
+    "mysql2": "^1.6.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.8.12",
-    "sequelize-cli": "^5.5.0"
+    "sequelize": "^5.8.12"
   },
   "engines": {
     "node": "7.8.0"

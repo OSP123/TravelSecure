@@ -3,7 +3,6 @@
 const express        = require('express');
 const path           = require('path');
 const logger         = require('morgan');
-const bodyParser     = require('body-parser');
 const session        = require('express-session'); 
 const passport 			 = require("./config/passport");
 const config				 = require("./config/extra-config");
@@ -32,8 +31,8 @@ const authCheck 		 = require('./config/middleware/attachAuthenticationStatus');
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({ secret: config.sessionKey, resave: true, saveUninitialized: true }));

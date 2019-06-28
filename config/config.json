@@ -4,8 +4,7 @@
     "password": "acha123a",
     "database": "travelSecure_development",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "dialectModule": "mysql2"
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
