@@ -1,11 +1,13 @@
 // Dependencies
 // ============
+
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const session = require('express-session');
 const passport = require('./config/passport');
 const config = require('./config/extra-config');
+const compression = require('compression');
 // Express settings
 // ================
 
@@ -44,6 +46,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(authCheck);
+// compress all responses
+app.use(compression());
 
 require('./routes')(app);
 
