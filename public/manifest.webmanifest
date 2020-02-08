@@ -1,0 +1,16 @@
+{
+    "name": "TravelSecure",
+    "short_name": "TravelSecure",
+    "icons": [
+      {
+        "src": "assets/img/ico-72x72-png-7.png",
+        "sizes": "72x72",
+        "type": "image/png"
+      }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "start_url": "/",
+    "display": "standalone"
+  }
+  
