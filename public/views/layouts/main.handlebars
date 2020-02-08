@@ -9,6 +9,13 @@
 
     <title>Be Prepared. TravelSafe.</title>
 
+    <!-- PWA Setting -->
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#3a2c3d">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="My Web App">
+
     <!-- Bootstrap Core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
@@ -27,8 +34,9 @@
     <![endif]-->
 
 </head>
-	<body>
-	{{{ body }}}
+
+<body>
+    {{{ body }}}
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
@@ -42,5 +50,15 @@
 
     <!-- Theme JavaScript -->
     <script src="/assets/js/grayscale.js"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("service-worker.js").then(reg => {
+                    console.log("We found your service worker file!", reg);
+                });
+            });
+        }
+    </script>
 </body>
+
 </html>
