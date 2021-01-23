@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
   const Trip = sequelize.define('Trip', {
     name: {
       type: DataTypes.STRING,
@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
-  Trip.associate = function (models) {
+  Trip.associate = models => {
     // associations can be defined here
     Trip.belongsTo(models.User, {
       foreignKey: {

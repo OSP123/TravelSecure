@@ -6,6 +6,7 @@ const logger         = require('morgan');
 const session        = require('express-session'); 
 const passport 			 = require("./config/passport");
 const config				 = require("./config/extra-config");
+const compression    = require('compression')
 // Express settings
 // ================
 
@@ -40,6 +41,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(authCheck);
 
+app.use(compression())
 
 require('./routes')(app);
 
