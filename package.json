@@ -9,10 +9,11 @@
     "url": "https://github.com/OSP123/TravelSecure"
   },
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
   },
   "devDependencies": {
-    "font-awesome": "^4.6.3"
+    "font-awesome": "^4.7.0"
   },
   "repository": {
     "type": "git",
@@ -20,14 +21,15 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "compression": "^1.7.4",
     "express": "^4.17.1",
-    "express-handlebars": "^5.0.0",
+    "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "morgan": "^1.10.0",
-    "mysql2": "^2.1.0",
+    "mysql2": "^2.2.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "sequelize": "^6.3.0"
+    "sequelize": "^6.4.0"
   },
   "engines": {
     "node": "14.5.0"

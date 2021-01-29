@@ -1,12 +1,29 @@
-$(document).ready(function() {
+$(document).ready(() => {
   // Getting references to our form and input
-  var signUpButton = $(".signup");
-  var usernameInput = $("input#username-input");
-  var emailInput = $("input#email-input");
-  var passwordInput = $("input#password-input");
+  const signUpButton = $(".signup");
+  const usernameInput = $("input#username-input");
+  const emailInput = $("input#email-input");
+  const passwordInput = $("input#password-input");
 
-  var repeatPasswordInput = $("input#repeat-password-input");
-  var repeatEmailInput = $("input#repeat-email-input");
+  const repeatPasswordInput = $("input#repeat-password-input");
+  const repeatEmailInput = $("input#repeat-email-input");
+
+    // Does a post to the signup route. If succesful, we are redirected to the members page
+  // Otherwise we log any errors
+  const signUpUser = (username, email, password) => {
+    $.post("/users/signup", {
+      username: username,
+      email: email,
+      password: password
+    }).then(data => {
+      if (data.duplicateUser) {
+        // Replace with Modal
+        alert("Sorry, that username has been taken");
+      } else {
+        window.location = data.redirect;
+      }
+    }).catch(err => console.log(err));
+  }
 
   // Username "on-the-fly" validation
   usernameInput.bind('input propertychange', function() {
@@ -24,7 +41,7 @@ $(document).ready(function() {
   });
 
   // Email "on-the-fly" validation
-  emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  const emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   emailInput.bind('input propertychange', function() {
     if (!emailRegEx.test($(this).val()))
     {
@@ -57,7 +74,7 @@ $(document).ready(function() {
       $("#email-repeat-feedback").text("Emails Match!");    
     }
   });
-  var passwordRegEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
+  const passwordRegEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
   passwordInput.bind('input propertychange', function() {
     if (!passwordRegEx.test($(this).val())) {
       $("#password-form").removeClass("has-success");
@@ -90,7 +107,7 @@ $(document).ready(function() {
   signUpButton.on("click", function(event) {
     // Replace all alerts with modals
 
-    var userData = {
+    const userData = {
       username: usernameInput.val().trim(),
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
@@ -108,24 +125,5 @@ $(document).ready(function() {
     repeatPasswordInput.val("");
     repeatEmailInput.val("");
   });
-
-  // Does a post to the signup route. If succesful, we are redirected to the members page
-  // Otherwise we log any errors
-  function signUpUser(username, email, password) {
-    $.post("/users/signup", {
-      username: username,
-      email: email,
-      password: password
-    }).then(function(data) {
-      if (data.duplicateUser) {
-        // Replace with Modal
-        alert("Sorry, that username has been taken");
-      } else {
-        window.location = data.redirect;
-      }
-    }).catch(function(err) {
-      console.log(err);
-    });
-  }
 
 });
