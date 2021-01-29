@@ -1,4 +1,4 @@
-module.exports = function(app){
+module.exports = app => {
 
 		const application = require('./routes/application');
 		const users = require('./routes/users');
