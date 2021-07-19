@@ -1,12 +1,11 @@
-var db  = require('../models');
+const db  = require('../models');
 
-exports.index = function(req, res) {
+exports.index = (req, res) => {
   db.Trip.findAll({
     where: {
       UserId: req.user.id
     }
-  }).then(function(dbTrip) {
-    console.log(dbTrip);
+  }).then(dbTrip => {
     res.render('trips/trips', {
       layout: 'main-trips',
       trip: dbTrip
@@ -14,14 +13,10 @@ exports.index = function(req, res) {
   });
 };
 
-exports.createTrip = function(req, res) {
-
-  console.log(req.user);
+exports.createTrip = (req, res) => {
   // Add id from User onto req.body
   req.body.UserId = req.user.id;
 
-  db.Trip.create(req.body).then(function(dbPost) {
-    res.json(dbPost);
-  });
+  db.Trip.create(req.body).then(dbPost => res.json(dbPost));
 };
 
