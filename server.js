@@ -8,6 +8,7 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const passport = require("./config/passport");
 const config = require("./config/extra-config");
 const compression = require("compression");
+const { sequelize } = require("./models");
 // Express settings
 // ================
 
@@ -17,7 +18,7 @@ const app = express();
 //allow sessions
 app.use(
   session({
-    secret: "There are Many Margaret Thatcher's throughout the thoroughfare",
+    secret: config.sessionKey,
     cookie: {},
     resave: false,
     saveUninitialized: true,
