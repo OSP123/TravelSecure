@@ -8,30 +8,34 @@ $(document).ready(() => {
   const repeatPasswordInput = $("input#repeat-password-input");
   const repeatEmailInput = $("input#repeat-email-input");
 
-    // Does a post to the signup route. If succesful, we are redirected to the members page
+  // Does a post to the signup route. If succesful, we are redirected to the members page
   // Otherwise we log any errors
   const signUpUser = (username, email, password) => {
     $.post("/users/signup", {
       username: username,
       email: email,
-      password: password
-    }).then(data => {
-      if (data.duplicateUser) {
-        // Replace with Modal
-        alert("Sorry, that username has been taken");
-      } else {
-        window.location = data.redirect;
-      }
-    }).catch(err => console.log(err));
-  }
+      password: password,
+    })
+      .then((data) => {
+        if (data.duplicateUser) {
+          // Replace with Modal
+          alert("Sorry, that username has been taken");
+        } else {
+          window.location.replace(data.redirect);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
 
   // Username "on-the-fly" validation
-  usernameInput.bind('input propertychange', function() {
+  usernameInput.bind("input propertychange", function () {
     if (usernameInput.val().trim().length < 6) {
       $("#username-form").removeClass("has-success");
 
       $("#username-form").addClass("has-error");
-      $("#username-feedback").text("username must be at least 6 characters long");
+      $("#username-feedback").text(
+        "username must be at least 6 characters long"
+      );
     } else {
       $("#username-form").removeClass("has-error");
 
@@ -42,15 +46,13 @@ $(document).ready(() => {
 
   // Email "on-the-fly" validation
   const emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  emailInput.bind('input propertychange', function() {
-    if (!emailRegEx.test($(this).val()))
-    {
+  emailInput.bind("input propertychange", function () {
+    if (!emailRegEx.test($(this).val())) {
       $("#email-form").removeClass("has-success");
 
       $("#email-form").addClass("has-error");
       $("#email-feedback").text("Invalid Email");
       $("#email-additional-feedback").text("Ex: someone@example.com");
-    
     } else {
       $("#email-form").removeClass("has-error");
 
@@ -61,7 +63,7 @@ $(document).ready(() => {
   });
 
   // Check "on-the-fly" if repeated email matches email
-  repeatEmailInput.bind('input propertychange', function() {
+  repeatEmailInput.bind("input propertychange", function () {
     if (emailInput.val().trim() !== repeatEmailInput.val().trim()) {
       $("#email-repeat-form").removeClass("has-success");
 
@@ -71,25 +73,28 @@ $(document).ready(() => {
       $("#email-repeat-form").removeClass("has-error");
 
       $("#email-repeat-form").addClass("has-success");
-      $("#email-repeat-feedback").text("Emails Match!");    
+      $("#email-repeat-feedback").text("Emails Match!");
     }
   });
-  const passwordRegEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
-  passwordInput.bind('input propertychange', function() {
+  const passwordRegEx =
+    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
+  passwordInput.bind("input propertychange", function () {
     if (!passwordRegEx.test($(this).val())) {
       $("#password-form").removeClass("has-success");
 
       $("#password-form").addClass("has-error");
-      $("#password-feedback").text("Password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number, 1 special character and must be at least 8 characters long.");
+      $("#password-feedback").text(
+        "Password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number, 1 special character and must be at least 8 characters long."
+      );
     } else {
       $("#password-form").removeClass("has-error");
 
       $("#password-form").addClass("has-success");
-      $("#password-feedback").text("Password set correctly!");    
+      $("#password-feedback").text("Password set correctly!");
     }
   });
 
-  repeatPasswordInput.bind('input propertychange', function() {
+  repeatPasswordInput.bind("input propertychange", function () {
     if (passwordInput.val().trim() !== repeatPasswordInput.val().trim()) {
       $("#repeat-password-form").removeClass("has-success");
 
@@ -99,18 +104,18 @@ $(document).ready(() => {
       $("#repeat-password-form").removeClass("has-error");
 
       $("#repeat-password-form").addClass("has-success");
-      $("#repeat-password-feedback").text("Passwords Match!");    
+      $("#repeat-password-feedback").text("Passwords Match!");
     }
   });
 
   // Check if emails match each other
-  signUpButton.on("click", function(event) {
+  signUpButton.on("click", function (event) {
     // Replace all alerts with modals
 
     const userData = {
       username: usernameInput.val().trim(),
       email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
+      password: passwordInput.val().trim(),
     };
 
     if (!userData.username || !userData.email || !userData.password) {
@@ -125,5 +130,4 @@ $(document).ready(() => {
     repeatPasswordInput.val("");
     repeatEmailInput.val("");
   });
-
 });

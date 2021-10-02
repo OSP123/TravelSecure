@@ -5,21 +5,22 @@
 
 // This way, we can set certain properties here
 // rather than having them take up space in server.js.
-const debug = require('debug')('express-example');
+const debug = require("debug")("express-example");
 
 // we bring in the app we exported from server.js
-const app = require('../server');
+const app = require("../server");
 
 // we bring in the models we exported with index.js
 const db = require("../models");
 
 // we set the port of the app
-app.set('port', process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3000);
 
-
-// we sync the models with our db 
+// we sync the models with our db
 // (thus creating the apropos tables)
 db.sequelize.sync().then(() => {
-	// set our app to listen to the port we set above
-  const server = app.listen(app.get('port'), () => debug('Express server listening on port ' + server.address().port));
+  // set our app to listen to the port we set above
+  const server = app.listen(app.get("port"), () =>
+    debug("Express server listening on port " + server.address().port)
+  );
 });
